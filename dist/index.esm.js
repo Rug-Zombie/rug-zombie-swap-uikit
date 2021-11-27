@@ -4917,10 +4917,9 @@ var TopBannerContainer = styled.div(templateObject_4 || (templateObject_4 = __ma
 var BodyWrapper = styled(Box)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled.div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  flex-grow: 1;\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n"], ["\n  flex-grow: 1;\n  transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translate3d(0, 0, 0);\n  max-width: 100%;\n"])));
 var Menu$1 = function (_a) {
-    var _b;
     var userMenu = _a.userMenu, banner = _a.banner, globalMenu = _a.globalMenu, isDark = _a.isDark; _a.toggleTheme; var currentLang = _a.currentLang, setLang = _a.setLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, subLinks = _a.subLinks; _a.footerLinks; var activeItem = _a.activeItem, activeSubItem = _a.activeSubItem, langs = _a.langs; _a.buyCakeLabel; var children = _a.children;
     var isMobile = useMatchBreakpoints().isMobile;
-    var _c = useState(true), showMenu = _c[0], setShowMenu = _c[1];
+    var _b = useState(true), showMenu = _b[0], setShowMenu = _b[1];
     var refPrevOffset = useRef(window.pageYOffset);
     var topBannerHeight = isMobile ? TOP_BANNER_HEIGHT_MOBILE : TOP_BANNER_HEIGHT;
     var totalTopMenuHeight = banner ? MENU_HEIGHT + topBannerHeight : MENU_HEIGHT;
@@ -4953,7 +4952,7 @@ var Menu$1 = function (_a) {
         };
     }, [totalTopMenuHeight]);
     // Find the home link if provided
-    var homeLink = links.find(function (link) { return link.label === "Home"; });
+    links.find(function (link) { return link.label === "Home"; });
     var subLinksWithoutMobile = subLinks === null || subLinks === void 0 ? void 0 : subLinks.filter(function (subLink) { return !subLink.isMobileOnly; });
     var subLinksMobileOnly = subLinks === null || subLinks === void 0 ? void 0 : subLinks.filter(function (subLink) { return subLink.isMobileOnly; });
     return (React__default.createElement(Wrapper, null,
@@ -4961,7 +4960,7 @@ var Menu$1 = function (_a) {
             banner && React__default.createElement(TopBannerContainer, { height: topBannerHeight }, banner),
             React__default.createElement(StyledNav, null,
                 React__default.createElement(Flex, null,
-                    React__default.createElement(Logo$1, { isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+                    React__default.createElement(Logo$1, { isDark: isDark, href: "https://www.rugzombie.io/" }),
                     !isMobile && React__default.createElement(MenuItems, { items: links, activeItem: activeItem, activeSubItem: activeSubItem, ml: "24px" })),
                 React__default.createElement(Flex, { alignItems: "center", height: "100%" },
                     !isMobile && (React__default.createElement(Box, { mr: "12px" },
