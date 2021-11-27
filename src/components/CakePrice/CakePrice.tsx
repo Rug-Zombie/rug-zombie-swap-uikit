@@ -26,10 +26,10 @@ const PriceLink = styled.a`
 const CakePrice: React.FC<Props> = ({ cakePriceUsd, color = "textSubtle" }) => {
   return cakePriceUsd ? (
     <PriceLink
-      href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+      href="https://bscscan.com/address/0x50ba8BF9E34f0F83F96a340387d1d3888BA4B3b5"
       target="_blank"
     >
-      <PancakeRoundIcon width="24px" mr="8px" />
+      <img alt="zombie icon" src="https://storage.googleapis.com/rug-zombie/low-hq-logo.png" style={{width: "30px", marginRight: "8px"}}/>
       <Text color={color} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
     </PriceLink>
   ) : (

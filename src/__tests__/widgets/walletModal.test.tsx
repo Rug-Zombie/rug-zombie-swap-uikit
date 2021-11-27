@@ -284,7 +284,7 @@ it("renders ConnectModal correctly", () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background: linear-gradient(139.73deg,#E5FDFF 0%,#F3EFFF 100%);
+      background: #000000;
       border-bottom: 1px solid #E7E3EB;
       display: -webkit-box;
       display: -webkit-flex;

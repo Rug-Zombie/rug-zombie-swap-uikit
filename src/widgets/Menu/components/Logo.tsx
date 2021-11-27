@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Flex from "../../../components/Box/Flex";
 import { LogoIcon, LogoWithTextIcon } from "../../../components/Svg";
+const RugZombieLogo = "https://storage.googleapis.com/rug-zombie/RugZombieBanner.png" //TODO switch gcloud url
 
 interface Props {
   isDark: boolean;
@@ -46,22 +47,16 @@ const StyledLink = styled(Link)`
 
 const Logo: React.FC<Props> = ({ isDark, href }) => {
   const isAbsoluteUrl = href.startsWith("http");
-  const innerLogo = (
-    <>
-      <LogoIcon className="mobile-icon" />
-      <LogoWithTextIcon className="desktop-icon" isDark={isDark} />
-    </>
-  );
 
   return (
     <Flex>
       {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="Pancake home page">
-          {innerLogo}
+          <img alt="" src={RugZombieLogo} style={{ width: "130px" }} />
         </StyledLink>
       ) : (
         <StyledLink to={href} aria-label="Pancake home page">
-          {innerLogo}
+          <img alt="" src={RugZombieLogo} style={{ width: "130px" }} />
         </StyledLink>
       )}
     </Flex>
