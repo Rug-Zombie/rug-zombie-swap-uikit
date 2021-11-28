@@ -1,5 +1,5 @@
 import React from "react";
-import { baseColors, darkColors, lightColors } from "../../theme/colors";
+import { baseColors, lightColors } from "../../theme/colors";
 import { Flex, Box } from "../Box";
 import { Link } from "../Link";
 import {
@@ -30,6 +30,8 @@ const MenuItem: React.FC<FooterProps> = ({
   buyCakeLabel,
   ...props
 }) => {
+  const RugZombieLogo = "https://storage.googleapis.com/rug-zombie/RugZombieBanner.png" //TODO switch gcloud url
+
   return (
     <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} {...props} justifyContent="center">
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
@@ -53,7 +55,7 @@ const MenuItem: React.FC<FooterProps> = ({
                       href={href}
                       target="_blank"
                       rel="noreferrer noopener"
-                      color={isHighlighted ? baseColors.warning : darkColors.text}
+                      color={isHighlighted ? baseColors.warning : lightColors.text}
                       bold={false}
                     >
                       {label}
@@ -66,7 +68,7 @@ const MenuItem: React.FC<FooterProps> = ({
             </StyledList>
           ))}
           <Box display={["none", null, "block"]}>
-            <LogoWithTextIcon isDark width="160px" />
+            <img alt="" src={RugZombieLogo} style={{ width: "160px" }} />
           </Box>
         </Flex>
         <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} />
@@ -76,22 +78,21 @@ const MenuItem: React.FC<FooterProps> = ({
           justifyContent="space-between"
         >
           <Flex order={[2, null, 1]} alignItems="center">
-            <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
             <LangSelector
               currentLang={currentLang}
               langs={langs}
               setLang={setLang}
-              color={darkColors.textSubtle as keyof Colors}
+              color={lightColors.textSubtle as keyof Colors}
               dropdownPosition="top-right"
             />
           </Flex>
           <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center">
             <Box mr="20px">
-              <CakePrice cakePriceUsd={cakePriceUsd} color={darkColors.textSubtle as keyof Colors} />
+              <CakePrice cakePriceUsd={cakePriceUsd} color={lightColors.textSubtle as keyof Colors} />
             </Box>
             <Button
               as="a"
-              href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+              href="https://swap.rugzombie.io/swap?outputCurrency=0x50ba8BF9E34f0F83F96a340387d1d3888BA4B3b5"
               target="_blank"
               scale="sm"
               endIcon={<ArrowForwardIcon color={lightColors.backgroundAlt} />}
