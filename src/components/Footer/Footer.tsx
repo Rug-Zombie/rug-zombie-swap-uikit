@@ -18,6 +18,7 @@ import CakePrice from "../CakePrice/CakePrice";
 import { LogoWithTextIcon, ArrowForwardIcon } from "../Svg";
 import { Button } from "../Button";
 import { Colors } from "../..";
+import Logo from "../../widgets/Menu/components/Logo";
 
 const MenuItem: React.FC<FooterProps> = ({
   items,
@@ -36,7 +37,7 @@ const MenuItem: React.FC<FooterProps> = ({
     <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} {...props} justifyContent="center">
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
         <StyledIconMobileContainer display={["block", null, "none"]}>
-          <LogoWithTextIcon isDark width="130px" />
+          <Logo isDark={false} href="https://www.rugzombie.io/"/>
         </StyledIconMobileContainer>
         <Flex
           order={[2, null, 1]}

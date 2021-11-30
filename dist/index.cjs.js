@@ -782,7 +782,7 @@ var Logo$2 = function (_a) {
         React__default['default'].createElement("path", { className: "left-eye", d: "M9.11817 15.2485C9.11817 16.2833 8.55896 17.1221 7.86914 17.1221C7.17932 17.1221 6.62012 16.2833 6.62012 15.2485C6.62012 14.2138 7.17932 13.375 7.86914 13.375C8.55896 13.375 9.11817 14.2138 9.11817 15.2485Z", fill: "#633001" }),
         React__default['default'].createElement("path", { className: "right-eye", d: "M17.7363 15.2485C17.7363 16.2833 17.1771 17.1221 16.4873 17.1221C15.7975 17.1221 15.2383 16.2833 15.2383 15.2485C15.2383 14.2138 15.7975 13.375 16.4873 13.375C17.1771 13.375 17.7363 14.2138 17.7363 15.2485Z", fill: "#633001" })));
 };
-var LogoWithTextIcon = React__default['default'].memo(Logo$2, function (prev, next) { return prev.isDark === next.isDark; });
+var LogoWithText = React__default['default'].memo(Logo$2, function (prev, next) { return prev.isDark === next.isDark; });
 
 var Icon$1d = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 40 40" }, props),
@@ -1541,7 +1541,7 @@ var IconModule = /*#__PURE__*/Object.freeze({
     LogoIcon: Icon$1g,
     LogoRoundIcon: Icon$1f,
     LogoutIcon: Icon$1e,
-    LogoWithTextIcon: LogoWithTextIcon,
+    LogoWithTextIcon: LogoWithText,
     MathWalletIcon: Icon$1d,
     MedalBronzeIcon: Icon$1c,
     MedalGoldIcon: Icon$1b,
@@ -4798,13 +4798,32 @@ var LangSelector = function (_a) {
 };
 var LangSelector$1 = React__default['default'].memo(LangSelector, function (prev, next) { return prev.currentLang === next.currentLang; });
 
+var RugZombieLogo = "https://storage.googleapis.com/rug-zombie/RugZombieBanner.png"; //TODO switch gcloud url
+var blink = styled.keyframes(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  0%,  100% { transform: scaleY(1); } \n  50% { transform:  scaleY(0.1); } \n"], ["\n  0%,  100% { transform: scaleY(1); } \n  50% { transform:  scaleY(0.1); } \n"])));
+var StyledLink = styled__default['default'](reactRouterDom.Link)(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 160px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n  .right-eye {\n    animation-delay: 20ms;\n  }\n  &:hover {\n    .left-eye,\n    .right-eye {\n      transform-origin: center 60%;\n      animation-name: ", ";\n      animation-duration: 350ms;\n      animation-iteration-count: 1;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 160px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n  .right-eye {\n    animation-delay: 20ms;\n  }\n  &:hover {\n    .left-eye,\n    .right-eye {\n      transform-origin: center 60%;\n      animation-name: ", ";\n      animation-duration: 350ms;\n      animation-iteration-count: 1;\n    }\n  }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.nav;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.nav;
+}, blink);
+var Logo = function (_a) {
+    _a.isDark; var href = _a.href;
+    var isAbsoluteUrl = href.startsWith("http");
+    return (React__default['default'].createElement(Flex, null, isAbsoluteUrl ? (React__default['default'].createElement(StyledLink, { as: "a", href: href, "aria-label": "Pancake home page" },
+        React__default['default'].createElement("img", { alt: "", src: RugZombieLogo, style: { width: "130px" } }))) : (React__default['default'].createElement(StyledLink, { to: href, "aria-label": "Pancake home page" },
+        React__default['default'].createElement("img", { alt: "", src: RugZombieLogo, style: { width: "130px" } })))));
+};
+var Logo$1 = React__default['default'].memo(Logo, function (prev, next) { return prev.isDark === next.isDark; });
+var templateObject_1$7, templateObject_2$4;
+
 var MenuItem = function (_a) {
     var items = _a.items; _a.isDark; _a.toggleTheme; var currentLang = _a.currentLang, langs = _a.langs, setLang = _a.setLang, cakePriceUsd = _a.cakePriceUsd, buyCakeLabel = _a.buyCakeLabel, props = __rest(_a, ["items", "isDark", "toggleTheme", "currentLang", "langs", "setLang", "cakePriceUsd", "buyCakeLabel"]);
     var RugZombieLogo = "https://storage.googleapis.com/rug-zombie/RugZombieBanner.png"; //TODO switch gcloud url
     return (React__default['default'].createElement(StyledFooter, __assign({ p: ["40px 16px", null, "56px 40px 32px 40px"] }, props, { justifyContent: "center" }),
         React__default['default'].createElement(Flex, { flexDirection: "column", width: ["100%", null, "1200px;"] },
             React__default['default'].createElement(StyledIconMobileContainer, { display: ["block", null, "none"] },
-                React__default['default'].createElement(LogoWithTextIcon, { isDark: true, width: "130px" })),
+                React__default['default'].createElement(Logo$1, { isDark: false, href: "https://www.rugzombie.io/" })),
             React__default['default'].createElement(Flex, { order: [2, null, 1], flexDirection: ["column", null, "row"], justifyContent: "space-between", alignItems: "flex-start", mb: ["42px", null, "36px"] }, items === null || items === void 0 ? void 0 :
                 items.map(function (item) {
                     var _a;
@@ -4839,25 +4858,6 @@ var MenuItems = function (_a) {
             React__default['default'].createElement(MenuItem$1, __assign({}, linkProps, { isActive: isActive, statusColor: statusColor }), label || React__default['default'].createElement(IconComponent, { iconName: icon, color: isActive ? "secondary" : "textSubtle" }))));
     })));
 };
-
-var RugZombieLogo = "https://storage.googleapis.com/rug-zombie/RugZombieBanner.png"; //TODO switch gcloud url
-var blink = styled.keyframes(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  0%,  100% { transform: scaleY(1); } \n  50% { transform:  scaleY(0.1); } \n"], ["\n  0%,  100% { transform: scaleY(1); } \n  50% { transform:  scaleY(0.1); } \n"])));
-var StyledLink = styled__default['default'](reactRouterDom.Link)(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 160px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n  .right-eye {\n    animation-delay: 20ms;\n  }\n  &:hover {\n    .left-eye,\n    .right-eye {\n      transform-origin: center 60%;\n      animation-name: ", ";\n      animation-duration: 350ms;\n      animation-iteration-count: 1;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 160px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n  .right-eye {\n    animation-delay: 20ms;\n  }\n  &:hover {\n    .left-eye,\n    .right-eye {\n      transform-origin: center 60%;\n      animation-name: ", ";\n      animation-duration: 350ms;\n      animation-iteration-count: 1;\n    }\n  }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.mediaQueries.nav;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.mediaQueries.nav;
-}, blink);
-var Logo = function (_a) {
-    _a.isDark; var href = _a.href;
-    var isAbsoluteUrl = href.startsWith("http");
-    return (React__default['default'].createElement(Flex, null, isAbsoluteUrl ? (React__default['default'].createElement(StyledLink, { as: "a", href: href, "aria-label": "Pancake home page" },
-        React__default['default'].createElement("img", { alt: "", src: RugZombieLogo, style: { width: "130px" } }))) : (React__default['default'].createElement(StyledLink, { to: href, "aria-label": "Pancake home page" },
-        React__default['default'].createElement("img", { alt: "", src: RugZombieLogo, style: { width: "130px" } })))));
-};
-var Logo$1 = React__default['default'].memo(Logo, function (prev, next) { return prev.isDark === next.isDark; });
-var templateObject_1$7, templateObject_2$4;
 
 var status = {
     LIVE: {
@@ -5483,7 +5483,7 @@ exports.ListViewIcon = Icon$1i;
 exports.LoginIcon = Icon$1h;
 exports.LogoIcon = Icon$1g;
 exports.LogoRoundIcon = Icon$1f;
-exports.LogoWithTextIcon = LogoWithTextIcon;
+exports.LogoWithTextIcon = LogoWithText;
 exports.LogoutIcon = Icon$1e;
 exports.MathWalletIcon = Icon$1d;
 exports.MedalBronzeIcon = Icon$1c;
